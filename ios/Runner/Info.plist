@@ -45,5 +45,7 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>ZPay 需要使用相機來掃描 QR Code 進行轉帳和加好友</string>
 </dict>
 </plist>
