@@ -24,8 +24,9 @@ class _PayPageState extends State<PayPage> {
       appBar: AppBar(title: const Text('轉帳/收款')),
       body: Padding(
         padding: const EdgeInsets.all(AppTheme.spacingM),
-        child: Column(
-          children: [
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
             // 金額輸入
             Row(
               children: [
@@ -36,7 +37,8 @@ class _PayPageState extends State<PayPage> {
                     keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
                       hintText: '輸入金額（可空白）',
-                      prefixText: '¥ ',
+                      prefixText: 'NT\$ ',
+                      helperText: '單筆最高 NT\$ 50,000',
                     ),
                     onChanged: (v) => setState(() => amount = int.tryParse(v) ?? 0),
                   ),
@@ -52,7 +54,7 @@ class _PayPageState extends State<PayPage> {
               description: '@demo 收款 QR（TTL ${AppConstants.qrTtlSeconds ~/ 60} 分鐘）',
             ),
 
-            const Spacer(),
+            const SizedBox(height: AppTheme.spacingXL),
             // 掃碼按鈕（導到掃描頁）
             SizedBox(
               width: double.infinity,
@@ -62,7 +64,8 @@ class _PayPageState extends State<PayPage> {
                 label: const Text('掃描付款 / 加好友'),
               ),
             ),
-          ],
+            ],
+          ),
         ),
       ),
     );

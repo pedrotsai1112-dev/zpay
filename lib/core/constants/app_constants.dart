@@ -1,9 +1,16 @@
-/// ZPay 應用常量定義
+/// ZPay 應用常量定義 - 台灣金融環境
 class AppConstants {
   // 應用信息
   static const String appName = 'ZPay';
   static const String appVersion = '1.0.0';
-  static const String appDescription = '智能分帳支付 App';
+  static const String appDescription = '台灣智能分帳支付 App';
+  
+  // 台灣在地化設定
+  static const String countryCode = 'TW';
+  static const String currencyCode = 'TWD';
+  static const String currencySymbol = 'NT\$';
+  static const String timeZone = 'Asia/Taipei';
+  static const String localeCode = 'zh_TW';
 
   // QR Code 相關
   static const String qrProtocol = 'zpay://';
@@ -13,16 +20,46 @@ class AppConstants {
   static const double qrCircleSize = 240.0;
   static const double qrBackgroundSize = 220.0;
 
-  // API 相關（未來使用）
-  static const String apiBaseUrl = 'https://api.zpay.app';
+  // 台灣金融 API 相關
+  static const String apiBaseUrl = 'https://api.zpay.tw'; // 台灣網域
   static const String apiVersion = 'v1';
   static const Duration apiTimeout = Duration(seconds: 30);
+  
+  // 台灣開放銀行 API 設定
+  static const String openBankingBaseUrl = 'https://openapi.fisc.com.tw'; // 財金公司
+  static const String oauth2AuthorizeUrl = '/oauth2/authorize';
+  static const String oauth2TokenUrl = '/oauth2/token';
+  
+  // 台灣銀行代碼 (前10大銀行)
+  static const Map<String, String> taiwanBankCodes = {
+    '004': '台灣銀行',
+    '005': '土地銀行', 
+    '006': '合作金庫',
+    '007': '第一銀行',
+    '008': '華南銀行',
+    '009': '彰化銀行',
+    '011': '上海商銀',
+    '012': '台北富邦',
+    '013': '國泰世華',
+    '017': '兆豐銀行',
+  };
 
-  // 用戶相關
+  // 台灣用戶相關限制
   static const int maxFriendsCount = 500;
   static const int maxSplitParticipants = 20;
-  static const double minTransferAmount = 1.0;
-  static const double maxTransferAmount = 50000.0;
+  static const double minTransferAmount = 1.0; // 最小轉帳 NT$1
+  static const double maxTransferAmount = 50000.0; // 單筆最高 NT$50,000
+  static const double dailyTransferLimit = 200000.0; // 每日限額 NT$200,000
+  
+  // 台灣手機號碼格式
+  static const String taiwanMobilePattern = r'^09\d{8}$'; // 09XXXXXXXX
+  static const String taiwanPhonePattern = r'^0\d{1,2}-?\d{6,8}$'; // 市話格式
+  
+  // 台灣身分證格式
+  static const String taiwanIdPattern = r'^[A-Z][12]\d{8}$';
+  
+  // 台灣銀行帳號格式 (各銀行略有不同，這是通用格式)
+  static const String bankAccountPattern = r'^\d{10,16}$';
 
   // UI 相關
   static const Duration animationDuration = Duration(milliseconds: 300);
