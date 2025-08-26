@@ -20,6 +20,9 @@ class Result<T> {
   /// 獲取數據（僅在成功時可用）
   T? get data => _data;
 
+  /// 獲取數據的別名（與 data 相同）
+  T? get value => _data;
+
   /// 獲取錯誤信息（僅在失敗時可用）
   String? get error => _error;
 

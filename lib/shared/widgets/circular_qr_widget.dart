@@ -16,13 +16,13 @@ class CircularQrWidget extends StatefulWidget {
 
   /// QR Code 數據
   final String data;
-  
+
   /// 整體大小
   final double size;
-  
+
   /// 是否顯示動畫效果
   final bool animated;
-  
+
   /// 描述文字
   final String? description;
 
@@ -42,13 +42,9 @@ class _CircularQrWidgetState extends State<CircularQrWidget>
       duration: const Duration(seconds: 3),
       vsync: this,
     );
-    _rotationAnimation = Tween<double>(
-      begin: 0,
-      end: 1,
-    ).animate(CurvedAnimation(
-      parent: _animationController,
-      curve: Curves.linear,
-    ));
+    _rotationAnimation = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.linear),
+    );
 
     if (widget.animated) {
       _animationController.repeat();
@@ -119,9 +115,9 @@ class _CircularQrWidgetState extends State<CircularQrWidget>
           const SizedBox(height: AppTheme.spacingM),
           Text(
             widget.description!,
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              color: Colors.grey[600],
-            ),
+            style: Theme.of(
+              context,
+            ).textTheme.bodySmall?.copyWith(color: Colors.grey[600]),
             textAlign: TextAlign.center,
           ),
         ],
