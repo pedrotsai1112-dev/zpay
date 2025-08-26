@@ -1,0 +1,113 @@
+# ZPay App - Cursor AI 開發規則
+
+## 專案概述
+ZPay 是一個 Flutter 金融支付 App，具備轉帳、分帳、好友管理功能。
+
+## 代碼風格與架構
+- **語言**: Dart (Flutter 3.9+)
+- **狀態管理**: flutter_riverpod
+- **路由**: go_router
+- **架構**: Feature-first + Clean Architecture
+- **UI**: Material 3 + 自定義設計系統
+
+## 目錄結構
+```
+lib/
+├── features/           # 功能模組
+│   ├── pay/           # 轉帳功能
+│   ├── split/         # 分帳功能
+│   ├── friends/       # 好友管理
+│   └── auth/          # 認證功能（未來）
+├── shared/            # 共享組件
+│   ├── widgets/       # 通用 UI 組件
+│   ├── services/      # 服務層
+│   ├── models/        # 數據模型
+│   └── utils/         # 工具函數
+├── core/              # 核心配置
+│   ├── theme/         # 主題配置
+│   ├── router/        # 路由配置
+│   └── constants/     # 常量定義
+└── main.dart          # 入口文件
+```
+
+## 開發準則
+
+### 1. 代碼質量
+- 使用 `flutter_lints` 嚴格檢查
+- 函數長度不超過 20 行
+- 類文件不超過 200 行
+- 100% null safety
+- 優先使用 const 構造函數
+
+### 2. 命名規範
+- 文件名: snake_case (pay_page.dart)
+- 類名: PascalCase (PayPage)
+- 變量/函數: camelCase (isLoading)
+- 常量: SCREAMING_SNAKE_CASE (API_BASE_URL)
+
+### 3. UI/UX 設計原則
+- Material 3 設計語言
+- 響應式設計 (手機優先)
+- 無障礙支持 (Semantics)
+- 流暢動畫 (60fps)
+- 一致的間距系統 (8, 16, 24, 32...)
+
+### 4. 性能優化
+- 優先使用 StatelessWidget
+- 適當使用 const 構造函數
+- 列表使用 ListView.builder
+- 圖片使用 CachedNetworkImage
+- 避免 build 方法中的複雜邏輯
+
+### 5. 錯誤處理
+- 使用 Result<T, E> 模式
+- 用戶友好的錯誤信息
+- 適當的 loading 狀態
+- 網絡異常重試機制
+
+### 6. 測試策略
+- 單元測試覆蓋率 > 80%
+- Widget 測試關鍵 UI
+- 集成測試主要用戶流程
+
+## 特定功能指引
+
+### 轉帳功能 (Pay)
+- QR Code 生成/掃描
+- 金額輸入驗證
+- 支付確認流程
+- 交易記錄
+
+### 分帳功能 (Split)
+- AI 自然語言處理
+- 多人分帳計算
+- 結果預覽確認
+- 發送分帳請求
+
+### 好友管理 (Friends)
+- QR Code 加好友
+- 好友列表管理
+- 群組功能
+- 分帳歷史
+
+## AI 開發建議
+1. 編寫代碼時請確保類型安全
+2. 優先使用現有的 widgets 和 features
+3. 新增功能請遵循既有架構模式
+4. 始終考慮用戶體驗和性能
+5. 代碼要有適當的註釋，特別是複雜邏輯
+6. 使用中文註釋，便於團隊理解
+
+## 版本控制
+- 主分支: main
+- 功能分支: feature/feature-name
+- 修復分支: fix/issue-description
+- Commit 信息使用中文，格式: [類型] 簡短描述
+
+## 部署環境
+- 開發: Flutter debug mode
+- 測試: Flutter profile mode  
+- 生產: Flutter release mode
+- 平台: iOS + Android
+
+請在開發過程中嚴格遵循以上規則，確保代碼質量和項目一致性。

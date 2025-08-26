@@ -1,0 +1,46 @@
+# Cursor 忽略文件 - 優化 AI 代碼分析性能
+
+# Build outputs
+/build/
+/ios/build/
+/android/build/
+/macos/build/
+/windows/build/
+/linux/build/
+/web/build/
+
+# Generated files
+*.g.dart
+*.freezed.dart
+*.mocks.dart
+/lib/generated/
+/ios/Runner/GeneratedPluginRegistrant.*
+/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+
+# Dependencies
+/ios/Pods/
+/ios/.symlinks/
+/android/.gradle/
+/macos/Pods/
+/windows/flutter/ephemeral/
+/linux/flutter/ephemeral/
+
+# IDE
+/.vscode/
+/.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Large media files (if any)
+*.mp4
+*.mov
+*.avi
+*.mkv
